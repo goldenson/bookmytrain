@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from: MyString
+  to: MyString
+  date_from: 2017-10-30
+  date_to: 2017-10-30
+  time_from: 2017-10-30 20:55:26
+  time_to: 2017-10-30 20:55:26
+
+two:
+  from: MyString
+  to: MyString
+  date_from: 2017-10-30
+  date_to: 2017-10-30
+  time_from: 2017-10-30 20:55:26
+  time_to: 2017-10-30 20:55:26

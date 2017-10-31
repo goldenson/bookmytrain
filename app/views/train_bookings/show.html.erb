@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @train_booking.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @train_booking.to %>
+</p>
+
+<p>
+  <strong>Date from:</strong>
+  <%= @train_booking.date_from %>
+</p>
+
+<p>
+  <strong>Date to:</strong>
+  <%= @train_booking.date_to %>
+</p>
+
+<p>
+  <strong>Time from:</strong>
+  <%= @train_booking.time_from %>
+</p>
+
+<p>
+  <strong>Time to:</strong>
+  <%= @train_booking.time_to %>
+</p>
+
+<%= link_to 'Edit', edit_train_booking_path(@train_booking) %> |
+<%= link_to 'Back', train_bookings_path %>

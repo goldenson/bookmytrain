@@ -1,0 +1,2 @@
+class TrainBooking < ApplicationRecord
+end

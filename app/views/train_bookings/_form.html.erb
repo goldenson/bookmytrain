@@ -1,0 +1,47 @@
+<%= form_with(model: train_booking, local: true) do |form| %>
+  <% if train_booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(train_booking.errors.count, "error") %> prohibited this train_booking from being saved:</h2>
+
+      <ul>
+      <% train_booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :from %>
+    <%= form.text_field :from, id: :train_booking_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :to %>
+    <%= form.text_field :to, id: :train_booking_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_from %>
+    <%= form.date_select :date_from, id: :train_booking_date_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_to %>
+    <%= form.date_select :date_to, id: :train_booking_date_to %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_from %>
+    <%= form.time_select :time_from, id: :train_booking_time_from %>
+  </div>
+
+  <div class="field">
+    <%= form.label :time_to %>
+    <%= form.time_select :time_to, id: :train_booking_time_to %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
