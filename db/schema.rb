@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171031005526) do
+ActiveRecord::Schema.define(version: 20171101015541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "train_bookings", force: :cascade do |t|
-    t.string "from"
-    t.string "to"
-    t.date "date_from"
-    t.date "date_to"
-    t.time "time_from"
-    t.time "time_to"
+    t.string "city_departure"
+    t.string "city_arrival"
+    t.date "date_departure"
+    t.date "date_arrival"
+    t.time "time_departure"
+    t.time "time_arrival"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
