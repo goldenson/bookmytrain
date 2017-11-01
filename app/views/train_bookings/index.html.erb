@@ -5,12 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>From</th>
-      <th>To</th>
-      <th>Date from</th>
-      <th>Date to</th>
-      <th>Time from</th>
-      <th>Time to</th>
+      <th>Departure</th>
+      <th>City Arrival</th>
+      <th>Date Departure</th>
+      <th>Date Arrival</th>
+      <th>Time Departure</th>
+      <th>Time Arrival</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,12 +18,12 @@
   <tbody>
     <% @train_bookings.each do |train_booking| %>
       <tr>
-        <td><%= train_booking.from %></td>
-        <td><%= train_booking.to %></td>
-        <td><%= train_booking.date_from %></td>
-        <td><%= train_booking.date_to %></td>
-        <td><%= train_booking.time_from %></td>
-        <td><%= train_booking.time_to %></td>
+        <td><%= train_booking.city_departure %></td>
+        <td><%= train_booking.city_arrival %></td>
+        <td><%= train_booking.date_departure %></td>
+        <td><%= train_booking.date_arrival %></td>
+        <td><%= train_booking.time_departure %></td>
+        <td><%= train_booking.time_arrival %></td>
         <td><%= link_to 'Show', train_booking %></td>
         <td><%= link_to 'Edit', edit_train_booking_path(train_booking) %></td>
         <td><%= link_to 'Destroy', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

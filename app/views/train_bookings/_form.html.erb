@@ -12,33 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :from %>
-    <%= form.text_field :from, id: :train_booking_from %>
+    <%= form.label :city_departure %>
+    <%= form.text_field :city_departure, id: :train_booking_city_departure %>
   </div>
 
   <div class="field">
-    <%= form.label :to %>
-    <%= form.text_field :to, id: :train_booking_to %>
+    <%= form.label :city_arrival %>
+    <%= form.text_field :city_arrival, id: :train_booking_city_arrival %>
   </div>
 
   <div class="field">
-    <%= form.label :date_from %>
-    <%= form.date_select :date_from, id: :train_booking_date_from %>
+    <%= form.label :date_departure %>
+    <%= form.date_select :date_departure, id: :train_booking_date_departure %>
   </div>
 
   <div class="field">
-    <%= form.label :date_to %>
-    <%= form.date_select :date_to, id: :train_booking_date_to %>
+    <%= form.label :date_arrival %>
+    <%= form.date_select :date_arrival, id: :train_booking_date_arrival %>
   </div>
 
   <div class="field">
-    <%= form.label :time_from %>
-    <%= form.time_select :time_from, id: :train_booking_time_from %>
+    <%= form.label :time_departure %>
+    <%= form.time_select :time_departure, id: :train_booking_time_departure %>
   </div>
 
   <div class="field">
-    <%= form.label :time_to %>
-    <%= form.time_select :time_to, id: :train_booking_time_to %>
+    <%= form.label :time_arrival %>
+    <%= form.time_select :time_arrival, id: :train_booking_time_arrival %>
   </div>
 
   <div class="actions">
