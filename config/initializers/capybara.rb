@@ -1,12 +1,14 @@
-chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
-chrome_opts = chrome_bin ? { "chromeOptions" => { "binary" => chrome_bin } } : {}
-
+# CHROME_PATH is /app/.apt/usr/bin/google-chrome-unstable
 Capybara.register_driver :selenium do |app|
-  if chrome_bin
+  if ENV["CHROME_PATH"]
     Capybara::Selenium::Driver.new(
       app,
       browser: :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(chrome_opts)
+      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+        "chromeOptions" => {
+          binary: ENV.fetch("CHROME_PATH")
+        }
+      )
     )
   else
     Capybara::Selenium::Driver.new(app, browser: :chrome)
