@@ -1,18 +1,14 @@
-# CHROME_PATH is /app/.apt/usr/bin/google-chrome-unstable
-Capybara.register_driver :selenium do |app|
-  if ENV["CHROME_PATH"]
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-        "chromeOptions" => {
-          binary: ENV.fetch("CHROME_PATH")
-        }
-      )
-    )
-  else
-    Capybara::Selenium::Driver.new(app, browser: :chrome)
-  end
+chrome_bin = ENV.fetch('GOOGLE_CHROME_SHIM', nil)
+
+options = {}
+options[:args] = ['headless', 'disable-gpu', 'window-size=1280,1024']
+options[:binary] = chrome_bin if chrome_bin
+
+Capybara.register_driver :headless_chrome do |app|
+  Capybara::Selenium::Driver.new(app,
+     browser: :chrome,
+     options: Selenium::WebDriver::Chrome::Options.new(options)
+   )
 end
 
-Capybara.default_driver = :selenium
+Capybara.javascript_driver = :headless_chrome
