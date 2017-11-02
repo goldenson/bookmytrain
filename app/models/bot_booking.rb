@@ -1,5 +1,5 @@
 class BotBooking
-  PURCHASED_ATTEMPTS = 2
+  PURCHASED_ATTEMPTS = 2.freeze
 
   def initialize
     @reservation = TrainBooking.last
@@ -26,6 +26,7 @@ class BotBooking
     @browser.find('#signin-form input[type=password]').set('131006')
     sleep 1
     @browser.find('.signin__button').click
+    sleep 1
   end
 
   def search_for_results
@@ -33,7 +34,6 @@ class BotBooking
     fill_in_city_arrival
     pick_right_month
     pick_right_datetime_departure
-    # pick_right_datetime_arrival
     submit_search
   end
 
@@ -69,13 +69,17 @@ class BotBooking
 
   def checkout
     sleep 6
-    # add to cart
+    puts "ADD TO CART"
     @browser.find('.selected-folder__button button').click
-    sleep 6
-    pick_the_best_result unless @browser.current_path == '/cart'
-
-    # buy ticket
-    # @browser.find('cart__group').click
+    sleep 4
+    puts "PAY TICKET -> $0"
+    @browser.find('.cart__group button').click
+    sleep 1
+    puts "I AGREE WITH SNCF"
+    @browser.find('.modal-dialog form span').click
+    sleep 1
+    puts "TICKET BOOKED"
+    @browser.click_button('Valider')
   end
 
   def visit_trainline
