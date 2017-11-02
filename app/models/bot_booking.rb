@@ -13,7 +13,6 @@ class BotBooking
     sign_in_as_max
     search_for_results
     pick_the_best_result
-    checkout
   end
 
   def sign_in_as_max
@@ -111,13 +110,6 @@ class BotBooking
   def pick_right_datetime_departure
     pick_right_date(@reservation.date_departure)
     pick_right_time(@reservation.time_departure)
-  end
-
-  def pick_right_datetime_arrival
-    @browser.find('.search__return-date-input').click
-
-    pick_right_date(@reservation.date_arrival)
-    pick_right_time(@reservation.time_arrival)
   end
 
   def submit_search
