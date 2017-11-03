@@ -26,6 +26,7 @@ class BotBooking
 
   def flow
     sign_in_as_max
+    debugger
     search_for_results
     pick_the_best_result
     choose_a_seat
@@ -33,6 +34,8 @@ class BotBooking
   end
 
   def sign_in_as_max
+    sleep 1
+    puts "Hello 💩"
     visit_trainline
     sleep 1
     @browser.find('.header__signin-button').click
