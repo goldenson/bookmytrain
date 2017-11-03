@@ -87,6 +87,7 @@ class BotBooking
   end
 
   def choose_a_seat
+    return
     sleep 5
     puts "PICK SEAT #{SEAT_PREFERENCES[@reservation.seat_preference.to_i].first}"
     @browser.all('.selected-folder__seat--seats option')[@reservation.seat_preference.to_i].click
