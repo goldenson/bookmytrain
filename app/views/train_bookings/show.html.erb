@@ -30,5 +30,10 @@
   <%= @train_booking.time_arrival %>
 </p>
 
+<p>
+  <strong>Seat Preference:</strong>
+  <%= humanize_seat_preference(@train_booking) %>
+</p>
+
 <%= link_to 'Edit', edit_train_booking_path(@train_booking) %> |
 <%= link_to 'Back', train_bookings_path %>

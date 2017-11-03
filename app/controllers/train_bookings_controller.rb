@@ -53,6 +53,14 @@ class TrainBookingsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def train_booking_params
-      params.require(:train_booking).permit(:city_departure, :city_arrival, :date_departure, :date_arrival, :time_arrival, :time_departure)
+      params.require(:train_booking).permit(
+        :city_departure,
+        :city_arrival,
+        :date_departure,
+        :date_arrival,
+        :time_arrival,
+        :time_departure,
+        :seat_preference
+      )
     end
 end

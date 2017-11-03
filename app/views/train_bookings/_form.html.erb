@@ -41,6 +41,11 @@
     <%= form.time_select :time_arrival, id: :train_booking_time_arrival %>
   </div>
 
+  <div class="field">
+    <%= form.label :seat_preference %>
+    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, train_booking.seat_preference || 2) %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

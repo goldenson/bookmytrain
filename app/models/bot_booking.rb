@@ -1,5 +1,20 @@
 class BotBooking
   PURCHASED_ATTEMPTS = 2.freeze
+  SEAT_PREFERENCES = [
+    ["Indifférent", 0],
+    ["Fenêtre", 1],
+    ["Couloir", 2],
+    ["Côte à côte", 3],
+    ["Haut", 4],
+    ["Bas", 5],
+    ["Haut, fenêtre", 6],
+    ["Haut, couloir", 7],
+    ["Haut, côte à côte", 8],
+    ["Bas, fenêtre", 9],
+    ["Bas, couloir", 10],
+    ["Bas, côte à côte", 11],
+    ["À côté de", 12],
+  ].freeze
 
   def initialize
     @reservation = TrainBooking.last
@@ -13,6 +28,8 @@ class BotBooking
     sign_in_as_max
     search_for_results
     pick_the_best_result
+    choose_a_seat
+    checkout
   end
 
   def sign_in_as_max
@@ -66,8 +83,14 @@ class BotBooking
     end
   end
 
+  def choose_a_seat
+    sleep 5
+    puts "PICK SEAT #{SEAT_PREFERENCES[@reservation.seat_preference.to_i].first}"
+    @browser.all('.selected-folder__seat--seats option')[@reservation.seat_preference.to_i].click
+  end
+
   def checkout
-    sleep 6
+    sleep 4
     puts "ADD TO CART"
     @browser.find('.selected-folder__button button').click
     sleep 4
@@ -119,24 +142,22 @@ class BotBooking
   private
 
   def pick_right_date(date)
+    sleep 1
     @browser.all('.search__calendar tbody tr td:not(.not-current-month):not(.disabled)').each do |node|
       if node.text.to_i == date.day
         node.click
         break
       end
     end
-
-    sleep 1
   end
 
   def pick_right_time(time)
+    sleep 1
     @browser.all('.search__timeslots time').each do |node|
       if node.text.to_i >= time.hour
         node.click
         break
       end
     end
-
-    sleep 1
   end
 end
