@@ -16,8 +16,8 @@ class BotBooking
     ["À côté de", 12],
   ].freeze
 
-  def initialize
-    @reservation = TrainBooking.last
+  def initialize(reservation)
+    @reservation = reservation
     @trainline_url = "https://www.trainline.fr/"
     @browser = Capybara.current_session
     @driver = @browser.driver.browser
