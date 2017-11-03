@@ -33,8 +33,8 @@ class BotBooking
   end
 
   def sign_in_as_max
-    sleep 1
     puts "Hello 💩"
+    sleep 1
     visit_trainline
     sleep 1
     @browser.find('.header__signin-button').click
@@ -103,27 +103,32 @@ class BotBooking
     puts "I AGREE WITH SNCF"
     @browser.find('.modal-dialog form span').click
     sleep 1
+    return
     puts "TICKET BOOKED"
     @browser.click_button('Valider')
   end
 
   def visit_trainline
+    puts "VISIT TRAINLINE"
     @browser.visit(@trainline_url)
   end
 
   def fill_in_city_departure
+    puts "FILLING CITY DEPARTURE"
     @browser.find('.search__departure-input').set("#{@reservation.city_departure}")
     sleep 1
     @browser.find('.search__stations--list').find("li:first-child").click
   end
 
   def fill_in_city_arrival
+    puts "FILLING CITY ARRIVAL"
     @browser.find('.search__arrival-input').set("#{@reservation.city_arrival}")
     sleep 1
     @browser.find('.search__stations--list').find("li:first-child").click
   end
 
   def pick_right_month
+    puts "PICKING RIGHT MONTH"
     delta_mat = @reservation.date_departure.month - @browser.find('.search__calendar--current-month').text.to_datetime.month
     delta_mat = 12 + delta_mat if delta_mat.negative? # next year case
 
@@ -134,6 +139,7 @@ class BotBooking
   end
 
   def pick_right_datetime_departure
+    puts "PICKING DATETIME DEPARTURE"
     pick_right_date(@reservation.date_departure)
     pick_right_time(@reservation.time_departure)
   end
