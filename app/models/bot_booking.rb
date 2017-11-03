@@ -26,7 +26,6 @@ class BotBooking
 
   def flow
     sign_in_as_max
-    debugger
     search_for_results
     pick_the_best_result
     choose_a_seat
@@ -45,6 +44,7 @@ class BotBooking
     @browser.find('#signin-form input[type=password]').set('131006')
     sleep 1
     @browser.find('.signin__button').click
+    puts "SIGN IN AS MAX"
     sleep 1
   end
 
