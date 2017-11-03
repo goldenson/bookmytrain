@@ -28,3 +28,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'whenever', :require => false
+gem "chromedriver-helper"
