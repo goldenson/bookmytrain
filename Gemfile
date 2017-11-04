@@ -29,3 +29,4 @@ gem 'capybara'
 gem 'selenium-webdriver'
 gem 'whenever', :require => false
 gem "chromedriver-helper"
+gem 'font-awesome-rails'
