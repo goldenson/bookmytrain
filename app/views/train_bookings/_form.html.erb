@@ -1,15 +1,5 @@
 <%= form_with(model: train_booking, local: true) do |form| %>
-  <% if train_booking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(train_booking.errors.count, "error") %> prohibited this train_booking from being saved:</h2>
-
-      <ul>
-      <% train_booking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= error_messages!(train_booking) %>
 
   <div class="form-group">
     <%= form.label :ville_départ %>
