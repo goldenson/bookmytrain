@@ -1,6 +1,12 @@
-<h1>Editing Train Booking</h1>
-
-<%= render 'form', train_booking: @train_booking %>
-
-<%= link_to 'Show', @train_booking %> |
-<%= link_to 'Back', train_bookings_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>Modification réservation</h1>
+      <br/>
+      <%= render 'form', train_booking: @train_booking %>
+      <br/>
+      <%= link_to 'Voir', @train_booking %> |
+      <%= link_to 'Retour', train_bookings_path %>
+    </div>
+  </div>
+</div>
