@@ -8,9 +8,7 @@
       <th>Departure</th>
       <th>City Arrival</th>
       <th>Date Departure</th>
-      <th>Date Arrival</th>
       <th>Time Departure</th>
-      <th>Time Arrival</th>
       <th>Seat Preference</th>
       <th colspan="3"></th>
     </tr>
@@ -22,9 +20,7 @@
         <td><%= train_booking.city_departure %></td>
         <td><%= train_booking.city_arrival %></td>
         <td><%= train_booking.date_departure %></td>
-        <td><%= train_booking.date_arrival %></td>
-        <td><%= train_booking.time_departure %></td>
-        <td><%= train_booking.time_arrival %></td>
+        <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
         <td><%= humanize_seat_preference(train_booking) %></td>
         <td><%= link_to 'Show', train_booking %></td>
         <td><%= link_to 'Edit', edit_train_booking_path(train_booking) %></td>

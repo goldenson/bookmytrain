@@ -16,18 +16,8 @@
 </p>
 
 <p>
-  <strong>Date Arrival:</strong>
-  <%= @train_booking.date_arrival %>
-</p>
-
-<p>
   <strong>Time Departure:</strong>
-  <%= @train_booking.time_departure %>
-</p>
-
-<p>
-  <strong>Time Arrival:</strong>
-  <%= @train_booking.time_arrival %>
+  <%= @train_booking.time_departure.strftime("%Hh%M") %>
 </p>
 
 <p>

@@ -57,8 +57,6 @@ class TrainBookingsController < ApplicationController
         :city_departure,
         :city_arrival,
         :date_departure,
-        :date_arrival,
-        :time_arrival,
         :time_departure,
         :seat_preference
       )
