@@ -12,31 +12,31 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label :city_departure %>
+    <%= form.label :ville_départ %>
     <%= form.text_field :city_departure, id: :train_booking_city_departure, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :city_arrival %>
+    <%= form.label :ville_arrivé %>
     <%= form.text_field :city_arrival, id: :train_booking_city_arrival, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :date_departure %>
+    <%= form.label :date_départ %>
     <%= form.date_field :date_departure, id: :train_booking_date_departure, class: 'form-control' %>
   </div>
 
   <div class="form-group">
-    <%= form.label :time_departure %>
+    <%= form.label :heure_départ %>
     <%= form.time_select :time_departure, { min: Date.current, minute_step: 15 }, { class: 'custom-select' } %>
   </div>
 
   <div class="form-group">
-    <%= form.label :seat_preference %>
+    <%= form.label :siège %>
     <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, train_booking.seat_preference || 2), {}, { class: 'form-control' } %>
   </div>
 
   <div class="actions">
-    <%= form.submit :Submit, class: 'btn btn-primary' %>
+    <%= form.submit :Créer, class: 'btn btn-primary' %>
   </div>
 <% end %>
