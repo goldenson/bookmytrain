@@ -1,35 +1,43 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Train Bookings</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Departure</th>
-      <th>City Arrival</th>
-      <th>Date Departure</th>
-      <th>Time Departure</th>
-      <th>Seat Preference</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @train_bookings.each do |train_booking| %>
-      <tr>
-        <td><%= train_booking.city_departure %></td>
-        <td><%= train_booking.city_arrival %></td>
-        <td><%= train_booking.date_departure %></td>
-        <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
-        <td><%= humanize_seat_preference(train_booking) %></td>
-        <td><%= link_to 'Show', train_booking %></td>
-        <td><%= link_to 'Edit', edit_train_booking_path(train_booking) %></td>
-        <td><%= link_to 'Destroy', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Train Booking', new_train_booking_path %>
+<div class="container">
+  <p id="notice"><%= notice %></p>
+  <h1>MrTranchette 😎</h1>
+  <br>
+  <div class="card">
+    <h4 class="card-header">Mes réservations</h4>
+    <div class="card-body">
+      <h4 class="card-title">Réserve ton train en toute tranquilité 🚂</h4>
+      <% unless @train_bookings.any? %>
+        <p class="card-text">Je s'occupe de tout, tu s'occupes de rien.</p>
+      <% else %>
+        <div class="row">
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>Départ</th>
+                <th>Arrivé</th>
+                <th>Date</th>
+                <th>Heure</th>
+                <th>Siège</th>
+                <th colspan="3"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @train_bookings.each do |train_booking| %>
+                <tr>
+                  <td><%= train_booking.city_departure %></td>
+                  <td><%= train_booking.city_arrival %></td>
+                  <td><%= train_booking.date_departure %></td>
+                  <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
+                  <td><%= humanize_seat_preference(train_booking) %></td>
+                  <td><%= link_to 'Éditer', edit_train_booking_path(train_booking) %></td>
+                  <td><%= link_to 'Supprimer', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+      <%= link_to 'Créer une réservation', new_train_booking_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

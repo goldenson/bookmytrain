@@ -24,7 +24,7 @@ class TrainBookingsController < ApplicationController
     @train_booking = TrainBooking.new(train_booking_params)
 
     if @train_booking.save
-      redirect_to @train_booking, notice: 'Train booking was successfully created.'
+      redirect_to train_bookings_path, notice: 'Train booking was successfully created.'
     else
       render :new
     end
