@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :city_departure %>
-    <%= form.text_field :city_departure, id: :train_booking_city_departure %>
+    <%= form.text_field :city_departure, id: :train_booking_city_departure, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :city_arrival %>
-    <%= form.text_field :city_arrival, id: :train_booking_city_arrival %>
+    <%= form.text_field :city_arrival, id: :train_booking_city_arrival, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :date_departure %>
-    <%= form.date_select :date_departure, id: :train_booking_date_departure %>
+    <%= form.date_field :date_departure, id: :train_booking_date_departure, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :time_departure %>
-    <%= form.time_select :time_departure, id: :train_booking_time_departure %>
+    <%= form.time_select :time_departure, { min: Date.current, minute_step: 15 }, { class: 'custom-select' } %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :seat_preference %>
-    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, train_booking.seat_preference || 2) %>
+    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, train_booking.seat_preference || 2), {}, { class: 'form-control' } %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :Submit, class: 'btn btn-primary' %>
   </div>
 <% end %>

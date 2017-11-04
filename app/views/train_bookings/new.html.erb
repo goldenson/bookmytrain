@@ -1,5 +1,11 @@
-<h1>New Train Booking</h1>
-
-<%= render 'form', train_booking: @train_booking %>
-
-<%= link_to 'Back', train_bookings_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1>New Train Booking</h1>
+      <br/>
+      <%= render 'form', train_booking: @train_booking %>
+      <br/>
+      <%= link_to 'Back', train_bookings_path %>
+    </div>
+  </div>
+</div>
