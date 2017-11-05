@@ -24,7 +24,7 @@ class TrainBookingsController < ApplicationController
     @train_booking = TrainBooking.new(train_booking_params)
 
     if @train_booking.save
-      redirect_to train_bookings_path, notice: 'Train booking was successfully created.'
+      redirect_to train_bookings_path, notice: 'Réservation créée avec succès.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class TrainBookingsController < ApplicationController
   # PATCH/PUT /train_bookings/1
   def update
     if @train_booking.update(train_booking_params)
-      redirect_to @train_booking, notice: 'Train booking was successfully updated.'
+      redirect_to @train_booking, notice: 'Réservation edité avec succès..'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class TrainBookingsController < ApplicationController
   # DELETE /train_bookings/1
   def destroy
     @train_booking.destroy
-    redirect_to train_bookings_url, notice: 'Train booking was successfully destroyed.'
+    redirect_to train_bookings_url, notice: 'Réservation supprimé avec succès.'
   end
 
   private
