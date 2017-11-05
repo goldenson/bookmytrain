@@ -3,7 +3,6 @@ Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
 
-- [ ] Add status to a reservation
 - [ ] Rename TrainBooking -> Reservation
 - [ ] Add state machine for reservation
 - [ ] Know if a reservation is already booked
