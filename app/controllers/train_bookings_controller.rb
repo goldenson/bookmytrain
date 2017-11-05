@@ -33,7 +33,7 @@ class TrainBookingsController < ApplicationController
   # PATCH/PUT /train_bookings/1
   def update
     if @train_booking.update(train_booking_params)
-      redirect_to @train_booking, notice: 'Réservation edité avec succès..'
+      redirect_to train_bookings_path, notice: 'Réservation edité avec succès..'
     else
       render :edit
     end
