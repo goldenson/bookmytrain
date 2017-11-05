@@ -1,14 +1,24 @@
 <div class="container">
-  <h1>MrTranchette 😎</h1>
-  <br>
-  <div class="card">
-    <h4 class="card-header">Mes réservations</h4>
+  <div class="float-right">
+    <%= link_to 'Créer une réservation', new_train_booking_path, class: 'btn btn-primary' %>
+  </div>
+  <h1>Reservations</h1>
+  <div class="card mb-3">
+    <div class="card-header">
+      <div class="server-link">
+        <div>
+          <strong>Réserve ton train en toute tranquilité 🚂</strong>
+        </div>
+        <div>
+          <small class="text-muted">
+            On soccupe de tout, tu s'occupes de rien.
+          </small>
+        </div>
+      </div>
+    </div>
     <div class="card-body">
-      <h4 class="card-title">Réserve ton train en toute tranquilité 🚂</h4>
-      <% unless @train_bookings.any? %>
-        <p class="card-text">Je s'occupe de tout, tu s'occupes de rien.</p>
-      <% else %>
-        <div class="row">
+      <div class="row">
+        <div class="col">
           <table class="table table-responsive">
             <thead>
               <tr>
@@ -35,8 +45,11 @@
             </tbody>
           </table>
         </div>
-      <% end %>
-      <%= link_to 'Créer une réservation', new_train_booking_path, class: 'btn btn-primary' %>
+        <!-- <div class="col text-right">
+          <a target="blank" class="btn btn-link" href="http://mrtranchette.com">View Site</a>
+          <a class="btn btn-outline-success" data-behavior="deploy-app" rel="nofollow" data-method="post" href="/servers/547/apps/570/deploy">Deploy</a>
+        </div> -->
+      </div>
     </div>
   </div>
 </div>
