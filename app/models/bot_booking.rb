@@ -97,6 +97,7 @@ class BotBooking
     puts "ADD TO CART"
     @browser.find('.selected-folder__button button').click
     sleep 4
+    @reservation.update(status: :completed)
     # puts "PAY TICKET -> $0"
     # @browser.find('.cart__group button').click
     # sleep 1

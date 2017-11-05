@@ -22,6 +22,7 @@
           <table class="table table-responsive">
             <thead>
               <tr>
+                <th>Status</th>
                 <th>Départ</th>
                 <th>Arrivé</th>
                 <th>Date</th>
@@ -33,12 +34,15 @@
             <tbody>
               <% @train_bookings.each do |train_booking| %>
                 <tr>
+                  <td><%= display_status_badge_html(train_booking) %></td>
                   <td><%= train_booking.city_departure %></td>
                   <td><%= train_booking.city_arrival %></td>
                   <td><%= train_booking.date_departure %></td>
                   <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
                   <td><%= humanize_seat_preference(train_booking) %></td>
-                  <td><%= link_to 'Éditer', edit_train_booking_path(train_booking) %></td>
+                  <% unless train_booking.status == 'completed' %>
+                    <td><%= link_to 'Éditer', edit_train_booking_path(train_booking) %></td>
+                  <% end %>
                   <td><%= link_to 'Supprimer', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </tr>
               <% end %>
