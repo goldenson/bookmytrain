@@ -1,6 +1,15 @@
 ---
 fr:
   activerecord:
+    models:
+      reservation: "Réservation"
+    attributes:
+      reservation:
+        city_departure: "Ville de départ"
+        city_arrival: "Ville d'arrivé"
+        date_arrival: "Date d'arrivé"
+        time_departure: "Heure de départ"
+        seat_preference: "Préference de siège"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
