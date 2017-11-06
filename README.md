@@ -3,6 +3,5 @@ Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
 
-- [ ] Rename TrainBooking -> Reservation
+- [ ] Test if le cron job tourne bien sur le server
 - [ ] Know if a reservation is already booked
-- [ ] Create V2 design with https://wireddots.metalogicssoft.com/themes/wired-ui-kit/default.html

@@ -3,12 +3,12 @@
 
 document.addEventListener("turbolinks:load", function() {
   const city_departure = places({
-    container: document.querySelector('#train_booking_city_departure'),
+    container: document.querySelector('#reservation_city_departure'),
     countries: 'fr',
   });
 
   const city_arrival = places( {
-    container: document.querySelector('#train_booking_city_arrival'),
+    container: document.querySelector('#reservation_city_arrival'),
     countries: 'fr',
   });
 });

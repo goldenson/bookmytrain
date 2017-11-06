@@ -1,8 +1,8 @@
 <div class="container">
   <div class="float-right">
-    <%= link_to 'Créer une réservation', new_train_booking_path, class: 'btn btn-primary' %>
+    <%= link_to 'Créer une réservation', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-  <h1>Reservations</h1>
+  <h1>Réservations</h1>
   <div class="card mb-3">
     <div class="card-header">
       <div class="server-link">
@@ -32,18 +32,18 @@
               </tr>
             </thead>
             <tbody>
-              <% @train_bookings.each do |train_booking| %>
+              <% @reservations.each do |reservation| %>
                 <tr>
-                  <td><%= display_status_badge_html(train_booking) %></td>
-                  <td><%= train_booking.city_departure %></td>
-                  <td><%= train_booking.city_arrival %></td>
-                  <td><%= train_booking.date_departure %></td>
-                  <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
-                  <td><%= humanize_seat_preference(train_booking) %></td>
-                  <% unless train_booking.successful? %>
-                    <td><%= link_to 'Éditer', edit_train_booking_path(train_booking) %></td>
+                  <td><%= display_status_badge_html(reservation) %></td>
+                  <td><%= reservation.city_departure %></td>
+                  <td><%= reservation.city_arrival %></td>
+                  <td><%= reservation.date_departure %></td>
+                  <td><%= reservation.time_departure.strftime("%Hh%M") %></td>
+                  <td><%= humanize_seat_preference(reservation) %></td>
+                  <% unless reservation.successful? %>
+                    <td><%= link_to 'Éditer', edit_reservation_path(reservation) %></td>
                   <% end %>
-                  <td><%= link_to 'Supprimer', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Supprimer', reservation, method: :delete, data: { confirm: 'Êtes vous sûr?' } %></td>
                 </tr>
               <% end %>
             </tbody>

@@ -1,19 +1,19 @@
-<%= form_with(model: train_booking, local: true) do |form| %>
-  <%= error_messages!(train_booking) %>
+<%= form_with(model: reservation, local: true) do |form| %>
+  <%= error_messages!(reservation) %>
 
   <div class="form-group">
     <%= form.label :ville_départ %>
-    <%= form.text_field :city_departure, id: :train_booking_city_departure, class: 'form-control' %>
+    <%= form.text_field :city_departure, id: :reservation_city_departure, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :ville_arrivé %>
-    <%= form.text_field :city_arrival, id: :train_booking_city_arrival, class: 'form-control' %>
+    <%= form.text_field :city_arrival, id: :reservation_city_arrival, class: 'form-control' %>
   </div>
 
   <div class="form-group">
     <%= form.label :date_départ %>
-    <%= form.date_field :date_departure, id: :train_booking_date_departure, class: 'form-control' %>
+    <%= form.date_field :date_departure, id: :reservation_date_departure, class: 'form-control' %>
   </div>
 
   <div class="form-group">
@@ -23,7 +23,7 @@
 
   <div class="form-group">
     <%= form.label :siège %>
-    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, train_booking.seat_preference || 2), {}, { class: 'form-control' } %>
+    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, reservation.seat_preference || 2), {}, { class: 'form-control' } %>
   </div>
 
   <div class="actions">
