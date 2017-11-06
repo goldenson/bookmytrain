@@ -3,7 +3,7 @@
     <div class="col-md-6 offset-md-3">
       <h1>Modification Réservation</h1>
       <br/>
-      <%= render 'form', train_booking: @train_booking %>
+      <%= render 'form', train_booking: @train_booking, action_name: 'Éditer' %>
       <br/>
       <%= link_to 'Retour', train_bookings_path %>
     </div>
