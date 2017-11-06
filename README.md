@@ -1,4 +1,5 @@
 # bookmytrain
+![](https://travis-ci.org/Goldenson/bookmytrain.svg?branch=master)
 Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
