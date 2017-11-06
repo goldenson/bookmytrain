@@ -37,8 +37,8 @@
                   <td><%= display_status_badge_html(reservation) %></td>
                   <td><%= reservation.city_departure %></td>
                   <td><%= reservation.city_arrival %></td>
-                  <td><%= reservation.date_departure %></td>
-                  <td><%= reservation.time_departure.strftime("%Hh%M") %></td>
+                  <td><%= l reservation.date_departure, format: :long %></td>
+                  <td><%= l reservation.time_departure, format: :hour %></td>
                   <td><%= humanize_seat_preference(reservation) %></td>
                   <% unless reservation.successful? %>
                     <td><%= link_to 'Éditer', edit_reservation_path(reservation) %></td>
