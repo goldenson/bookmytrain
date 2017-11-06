@@ -20,6 +20,8 @@ class TrainBooking < ApplicationRecord
     end
   end
 
+  scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month ) }
+
   private
 
   def sanitize_cities

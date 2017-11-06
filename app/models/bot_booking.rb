@@ -105,8 +105,8 @@ class BotBooking
 
   def checkout
     sleep 4
-    puts "ADD TO CART"
     @browser.find('.selected-folder__button button').click
+    puts "ADD TO CART"
     sleep 4
     @reservation.success
     # puts "PAY TICKET -> $0"
