@@ -4,8 +4,7 @@ module TrainBookingsHelper
   end
 
   def display_status_badge_html(train_booking)
-    case train_booking&.status
-    when "completed"
+    if train_booking.successful?
       "<span class='badge badge-pill badge-success'>Réservé</span>".html_safe
     else
       "<span class='badge badge-pill badge-info'>Pas Réservé</span>".html_safe

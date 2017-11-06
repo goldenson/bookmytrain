@@ -25,11 +25,16 @@ class BotBooking
   end
 
   def flow
-    sign_in_as_max
-    search_for_results
-    pick_the_best_result
-    # choose_a_seat
-    checkout
+    begin
+      @reservation.process
+      sign_in_as_max
+      search_for_results
+      pick_the_best_result
+      choose_a_seat
+      checkout
+    rescue NoMethodError, Capybara::ElementNotFound
+      @reservation.failure
+    end
   end
 
   def sign_in_as_max
@@ -89,7 +94,13 @@ class BotBooking
   def choose_a_seat
     sleep 5
     puts "PICK SEAT #{SEAT_PREFERENCES[@reservation.seat_preference.to_i].first}"
-    @browser.all('.selected-folder__seat--seats option')[@reservation.seat_preference.to_i].click
+    @browser.all('.selected-folder__seat--seats option').each do |node|
+      if node.text.to_i == @reservation.seat_preference.to_i
+        node.click
+        break
+      end
+    end
+    sleep 1
   end
 
   def checkout
@@ -97,7 +108,7 @@ class BotBooking
     puts "ADD TO CART"
     @browser.find('.selected-folder__button button').click
     sleep 4
-    @reservation.update(status: :completed)
+    @reservation.success
     # puts "PAY TICKET -> $0"
     # @browser.find('.cart__group button').click
     # sleep 1

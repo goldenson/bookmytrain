@@ -40,7 +40,7 @@
                   <td><%= train_booking.date_departure %></td>
                   <td><%= train_booking.time_departure.strftime("%Hh%M") %></td>
                   <td><%= humanize_seat_preference(train_booking) %></td>
-                  <% unless train_booking.status == 'completed' %>
+                  <% unless train_booking.successful? %>
                     <td><%= link_to 'Éditer', edit_train_booking_path(train_booking) %></td>
                   <% end %>
                   <td><%= link_to 'Supprimer', train_booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>

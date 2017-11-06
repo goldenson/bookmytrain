@@ -6,6 +6,20 @@ class TrainBooking < ApplicationRecord
 
   before_save :sanitize_cities
 
+  state_machine :state, initial: :pending do
+    event :process do
+        transition [:pending, :failed] => :processing
+    end
+
+    event :failure do
+      transition processing: :failed
+    end
+
+    event :success do
+        transition processing: :successful
+    end
+  end
+
   private
 
   def sanitize_cities
