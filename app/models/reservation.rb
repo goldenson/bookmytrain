@@ -21,6 +21,7 @@ class Reservation < ApplicationRecord
   end
 
   scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month) }
+  scope :by_date_departure, -> { all.order(date_departure: :desc) }
 
   private
 
