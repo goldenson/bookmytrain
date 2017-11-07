@@ -8,7 +8,7 @@ class Reservation < ApplicationRecord
 
   state_machine :state, initial: :pending do
     event :process do
-        transition [:pending, :failed] => :processing
+      transition [:pending, :failed] => :processing
     end
 
     event :failure do
@@ -16,11 +16,11 @@ class Reservation < ApplicationRecord
     end
 
     event :success do
-        transition processing: :successful
+      transition processing: :successful
     end
   end
 
-  scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month ) }
+  scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month) }
 
   private
 
