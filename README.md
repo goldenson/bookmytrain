@@ -5,6 +5,7 @@ Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
 
+- [ ] Faire la recherche par uri https://www.trainline.fr/search/paris/st-raphael-valescure/2017-11-17-10:00
 - [ ] Fix users update, allow them change password
 - [ ] Add fb/google auth?
 - [ ] Add SweetAlert

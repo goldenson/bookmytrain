@@ -23,7 +23,13 @@
 
   <div class="form-group">
     <%= form.label :siège %>
-    <%= form.select :seat_preference, options_for_select(BotBooking::SEAT_PREFERENCES, reservation.seat_preference || 2), {}, { class: 'form-control' } %>
+    <%= form.select :seat_preference,
+      options_for_select(
+        Reservation::SEAT_PREFERENCES,
+        reservation.seat_preference),
+        {},
+        { class: 'form-control' }
+    %>
   </div>
 
   <div class="actions">

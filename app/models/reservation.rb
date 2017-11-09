@@ -1,4 +1,20 @@
 class Reservation < ApplicationRecord
+  SEAT_PREFERENCES = [
+    'Indifférent',
+    'Fenêtre',
+    'Couloir',
+    'Côte à côte',
+    'Haut',
+    'Bas',
+    'Haut, fenêtre',
+    'Haut, couloir',
+    'Haut, côte à côte',
+    'Bas, fenêtre',
+    'Bas, couloir',
+    'Bas, côte à côte',
+    'À côté de',
+  ].freeze
+
   belongs_to :user, counter_cache: true
 
   validates :city_departure, presence: true

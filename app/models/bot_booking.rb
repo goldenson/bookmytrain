@@ -1,20 +1,5 @@
 class BotBooking
   PURCHASED_ATTEMPTS = 2.freeze
-  SEAT_PREFERENCES = [
-    ["Indifférent", 0],
-    ["Fenêtre", 1],
-    ["Couloir", 2],
-    ["Côte à côte", 3],
-    ["Haut", 4],
-    ["Bas", 5],
-    ["Haut, fenêtre", 6],
-    ["Haut, couloir", 7],
-    ["Haut, côte à côte", 8],
-    ["Bas, fenêtre", 9],
-    ["Bas, couloir", 10],
-    ["Bas, côte à côte", 11],
-    ["À côté de", 12],
-  ].freeze
 
   def initialize(reservation)
     @reservation = reservation
@@ -92,10 +77,11 @@ class BotBooking
   end
 
   def choose_a_seat
+    seat_index = Reservation::SEAT_PREFERENCES.find_index(@reservation.seat_preference)
     sleep 5
-    puts "PICK SEAT #{SEAT_PREFERENCES[@reservation.seat_preference.to_i].first}"
-    @browser.all('.selected-folder__seat--seats option').each do |node|
-      if node.text.to_i == @reservation.seat_preference.to_i
+    puts "PICK SEAT #{@reservation.seat_preference}"
+    @browser.all('.selected-folder__seat--seats option').each_with_index do |node, index|
+      if index == seat_index
         node.click
         break
       end
