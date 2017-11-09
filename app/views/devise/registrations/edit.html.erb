@@ -18,9 +18,12 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :mot_de_passe_trainline %>
-          <%= f.text_field :password_trainline, class: 'form-control', placeholder: 'Mot de passe' %>
-          <p class="form-text text-muted"><small>Information requise 🤖</small></p>
+          <div class="input-group">
+            <%= f.text_field :password_trainline, class: 'form-control', placeholder: 'Mot de passe', aria: { label: "Mot de passe" }, type: 'password' %>
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-sm" type="button" id="show_password">Voir</button>
+            </span>
+          </div>
         </div>
 
         <div class="form-group">
