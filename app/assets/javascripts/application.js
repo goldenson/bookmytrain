@@ -14,6 +14,5 @@
 //= require jquery
 //= require popper
 //= require bootstrap
-//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
