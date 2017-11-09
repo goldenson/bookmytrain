@@ -159,16 +159,6 @@ section {
 .navbar-toggler:focus{
     outline: none;
 }
-.dropdown-toggle::after {
-    vertical-align: top;
-    content: "\f3d0";
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    font-family: "Ionicons";
-    font-size: 17px;
-    margin-top: -4px;
-}
 .navbar-nav .dropdown .dropdown-toggle:after {
     margin-top: 0px;
 }
