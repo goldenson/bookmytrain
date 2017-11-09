@@ -22,7 +22,7 @@ class Reservation < ApplicationRecord
     end
   end
 
-  scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month) }
+  scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current + 1.day..Date.current + 1.day + 1.month) }
 
   private
 
