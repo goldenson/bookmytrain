@@ -2,12 +2,12 @@
 // All this logic will automatically be available in application.js.
 
 document.addEventListener("turbolinks:load", function() {
-  const city_departure = places({
+  var city_departure = places({
     container: document.querySelector('#reservation_city_departure'),
     countries: 'fr',
   });
 
-  const city_arrival = places( {
+  var city_arrival = places( {
     container: document.querySelector('#reservation_city_arrival'),
     countries: 'fr',
   });
