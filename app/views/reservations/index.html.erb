@@ -2,7 +2,7 @@
   <div class="float-right">
     <%= link_to 'Créer une réservation', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-  <h1>Réservations (<%= current_user.reservations_count %>)</h1>
+  <h2>Réservations <span class="badge badge-pill badge-primary"><%= current_user.reservations_count %></span></h2>
   <div class="card mb-3">
     <div class="card-header">
       <div class="server-link">
