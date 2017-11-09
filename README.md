@@ -6,6 +6,7 @@ Automated train ticket booking for https://www.trainline.fr
 ## TODO
 
 - [ ] Fix users update, allow them change password
+- [ ] Add fb/google auth?
 - [ ] Remove image from user
 - [ ] Localize users
 - [ ] Add bugsnag
@@ -16,3 +17,4 @@ Automated train ticket booking for https://www.trainline.fr
 - [ ] Write system test
 - [ ] Remove all sleep call and introduce a smarter solution
 - [ ] Add a page to explain them, they need a trainline account already setup
+- [ ] Add some JS to go through the next input field

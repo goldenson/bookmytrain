@@ -27,7 +27,7 @@ class BotBooking
   def flow
     begin
       @reservation.process
-      sign_in_as_max
+      sign_in
       search_for_results
       pick_the_best_result
       choose_a_seat
@@ -37,16 +37,16 @@ class BotBooking
     end
   end
 
-  def sign_in_as_max
+  def sign_in
     puts "Hello 💩"
     sleep 1
     visit_trainline
     sleep 1
     @browser.find('.header__signin-button').click
     sleep 1
-    @browser.find('#signin-form input[type=email]').set('orefice.maxime@gmail.com')
+    @browser.find('#signin-form input[type=email]').set(@reservation.user.login_trainline)
     sleep 1
-    @browser.find('#signin-form input[type=password]').set('131006')
+    @browser.find('#signin-form input[type=password]').set(@reservation.user.password_trainline)
     sleep 1
     @browser.find('.signin__button').click
     puts "SIGN IN AS MAX"
