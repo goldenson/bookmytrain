@@ -2,7 +2,7 @@
   <div class="float-right">
     <%= link_to 'Créer une réservation', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-  <h1>Réservations</h1>
+  <h1>Réservations (<%= current_user.reservations_count %>)</h1>
   <div class="card mb-3">
     <div class="card-header">
       <div class="server-link">
@@ -16,44 +16,46 @@
         </div>
       </div>
     </div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col">
-          <table class="table table-responsive">
-            <thead>
-              <tr>
-                <th>Status</th>
-                <th>Départ</th>
-                <th>Arrivé</th>
-                <th>Date</th>
-                <th>Heure</th>
-                <th>Siège</th>
-                <th colspan="3"></th>
-              </tr>
-            </thead>
-            <tbody>
-              <% @reservations.each do |reservation| %>
+    <% if current_user.reservations.any? %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <table class="table table-responsive">
+              <thead>
                 <tr>
-                  <td><%= display_status_badge_html(reservation) %></td>
-                  <td><%= reservation.city_departure %></td>
-                  <td><%= reservation.city_arrival %></td>
-                  <td><%= l reservation.date_departure, format: :long %></td>
-                  <td><%= l reservation.time_departure, format: :hour %></td>
-                  <td><%= humanize_seat_preference(reservation) %></td>
-                  <% unless reservation.successful? %>
-                    <td><%= link_to 'Éditer', edit_reservation_path(reservation) %></td>
-                  <% end %>
-                  <td><%= link_to 'Supprimer', reservation, method: :delete, data: { confirm: 'Êtes vous sûr?' } %></td>
+                  <th>Status</th>
+                  <th>Départ</th>
+                  <th>Arrivé</th>
+                  <th>Date</th>
+                  <th>Heure</th>
+                  <th>Siège</th>
+                  <th colspan="3"></th>
                 </tr>
-              <% end %>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <% @reservations.each do |reservation| %>
+                  <tr>
+                    <td><%= display_status_badge_html(reservation) %></td>
+                    <td><%= reservation.city_departure %></td>
+                    <td><%= reservation.city_arrival %></td>
+                    <td><%= l reservation.date_departure, format: :long %></td>
+                    <td><%= l reservation.time_departure, format: :hour %></td>
+                    <td><%= humanize_seat_preference(reservation) %></td>
+                    <% unless reservation.successful? %>
+                      <td><%= link_to 'Éditer', edit_reservation_path(reservation) %></td>
+                    <% end %>
+                    <td><%= link_to 'Supprimer', reservation, method: :delete, data: { confirm: 'Êtes vous sûr?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+          <!-- <div class="col text-right">
+            <a target="blank" class="btn btn-link" href="http://mrtranchette.com">View Site</a>
+            <a class="btn btn-outline-success" data-behavior="deploy-app" rel="nofollow" data-method="post" href="/servers/547/apps/570/deploy">Deploy</a>
+          </div> -->
         </div>
-        <!-- <div class="col text-right">
-          <a target="blank" class="btn btn-link" href="http://mrtranchette.com">View Site</a>
-          <a class="btn btn-outline-success" data-behavior="deploy-app" rel="nofollow" data-method="post" href="/servers/547/apps/570/deploy">Deploy</a>
-        </div> -->
       </div>
-    </div>
+    <% end %>
   </div>
 </div>

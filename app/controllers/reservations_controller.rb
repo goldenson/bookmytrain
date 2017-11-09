@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations
   def index
-    @reservations = Reservation.by_date_departure
+    @reservations = current_user.reservations.order(date_departure: :desc)
   end
 
   # GET /reservations/1
@@ -13,7 +13,7 @@ class ReservationsController < ApplicationController
 
   # GET /reservations/new
   def new
-    @reservation = Reservation.new
+    @reservation = current_user.reservations.new
   end
 
   # GET /reservations/1/edit
@@ -22,7 +22,7 @@ class ReservationsController < ApplicationController
 
   # POST /reservations
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = current_user.reservations.new(reservation_params)
 
     if @reservation.save
       redirect_to reservations_path, notice: 'Réservation créée avec succès.'

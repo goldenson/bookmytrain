@@ -1,4 +1,6 @@
 class Reservation < ApplicationRecord
+  belongs_to :user, counter_cache: true
+
   validates :city_departure, presence: true
   validates :city_arrival, presence: true
   validates :date_departure, presence: true
@@ -21,7 +23,6 @@ class Reservation < ApplicationRecord
   end
 
   scope :unbooked, -> { where(state: [:pending, :failed], date_departure: Date.current..Date.current + 1.month) }
-  scope :by_date_departure, -> { all.order(date_departure: :desc) }
 
   private
 
