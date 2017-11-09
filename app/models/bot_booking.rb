@@ -109,14 +109,14 @@ class BotBooking
     puts "ADD TO CART"
     sleep 4
     @reservation.success
-    # puts "PAY TICKET -> $0"
-    # @browser.find('.cart__group button').click
-    # sleep 1
-    # puts "I AGREE WITH SNCF"
-    # @browser.find('.modal-dialog form span').click
-    # sleep 1
-    # puts "TICKET BOOKED"
-    # @browser.click_button('Valider')
+    puts "PAY TICKET -> $0"
+    @browser.find('.cart__group button').click
+    sleep 1
+    puts "I AGREE WITH SNCF"
+    @browser.find('.modal-dialog form span').click
+    sleep 1
+    puts "TICKET BOOKED"
+    @browser.click_button('Valider')
   end
 
   def visit_trainline
