@@ -5,10 +5,12 @@ document.addEventListener("turbolinks:load", function() {
   var city_departure = places({
     container: document.querySelector('#reservation_city_departure'),
     countries: 'fr',
+    type: 'city',
   });
 
   var city_arrival = places( {
     container: document.querySelector('#reservation_city_arrival'),
     countries: 'fr',
+    type: 'city',
   });
 });
