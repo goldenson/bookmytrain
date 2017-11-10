@@ -10,6 +10,13 @@ body{
 body, button, input, optgroup, select, textarea {
     font-family: 'Hind';
 }
+
+.page {
+  min-height: 100%;
+  margin-top: -125px;
+  padding-top: 150px;
+}
+
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 1.5rem;
     font-weight: 500;
