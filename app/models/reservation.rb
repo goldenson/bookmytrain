@@ -21,6 +21,7 @@ class Reservation < ApplicationRecord
   validates :city_arrival, presence: true
   validates :date_departure, presence: true
   validates :time_departure, presence: true
+  validates :seat_preference, inclusion: { in: SEAT_PREFERENCES }
 
   before_save :sanitize_cities
 
