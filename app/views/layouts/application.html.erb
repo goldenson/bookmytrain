@@ -10,7 +10,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="page">
     <% if user_masquerade? %>
       <div class="alert alert-warning text-center mb-0">
         You're logged in as <%= current_user.name %>.
@@ -21,7 +21,7 @@
     <%= render 'shared/header' %>
     <%= render 'shared/notices' %>
 
-    <main class="page">
+    <main class="mt-5">
       <%= yield %>
     </main>
 

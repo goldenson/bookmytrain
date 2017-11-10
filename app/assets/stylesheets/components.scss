@@ -12,9 +12,13 @@ body, button, input, optgroup, select, textarea {
 }
 
 .page {
+  display: flex;
+  flex-flow: column nowrap;
   min-height: 100%;
-  margin-top: -125px;
-  padding-top: 150px;
+
+  main {
+    flex: 1;
+  }
 }
 
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
