@@ -94,6 +94,9 @@ GEM
       railties (>= 4.1.0, < 5.2)
       responders
       warden (~> 1.2.3)
+    devise_masquerade (0.6.1)
+      devise (>= 2.1.0)
+      railties (>= 3.0)
     erubi (1.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -245,6 +248,7 @@ DEPENDENCIES
   chromedriver-helper
   devise
   devise-bootstrapped!
+  devise_masquerade
   font-awesome-sass
   jquery-rails
   listen (>= 3.0.5, < 3.2)

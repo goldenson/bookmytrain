@@ -11,6 +11,13 @@
   </head>
 
   <body>
+    <% if user_masquerade? %>
+      <div class="alert alert-warning text-center mb-0">
+        You're logged in as <%= current_user.name %>.
+        <%= link_to back_masquerade_path(current_user) do %>Logout <%= icon "times" %><% end %>
+      </div>
+    <% end %>
+
     <%= render 'shared/header' %>
     <%= render 'shared/notices' %>
 
