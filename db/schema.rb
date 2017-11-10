@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109010309) do
+ActiveRecord::Schema.define(version: 20171109135713) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20171109010309) do
     t.time "time_departure"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "seat_preference"
+    t.string "seat_preference", default: "Couloir"
     t.string "state", default: "pending"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"

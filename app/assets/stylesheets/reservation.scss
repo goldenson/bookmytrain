@@ -1,11 +1,15 @@
-// Place all the styles related to the TrainBookings controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 body {
   background-color: #f4f6f8;
 }
 
 .card {
   border-radius: 0.6rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex--horizontal-center {
+  align-items: center;
 }

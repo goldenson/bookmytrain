@@ -2,7 +2,7 @@
   <div class="float-right">
     <%= link_to 'Créer une réservation', new_reservation_path, class: 'btn btn-primary' %>
   </div>
-  <h2>Réservations <span class="badge badge-pill badge-primary"><%= current_user.reservations_count %></span></h2>
+  <h2 class="flex flex--horizontal-center">Réservations <span class="badge badge-pill badge-primary ml-2"><%= current_user.reservations_count %></span></h2>
   <div class="card mb-3">
     <div class="card-header">
       <div class="server-link">
@@ -40,7 +40,7 @@
                     <td><%= reservation.city_arrival %></td>
                     <td><%= l reservation.date_departure, format: :long %></td>
                     <td><%= l reservation.time_departure, format: :hour %></td>
-                    <td><%= humanize_seat_preference(reservation) %></td>
+                    <td><%= reservation.seat_preference %></td>
                     <% unless reservation.successful? %>
                       <td><%= link_to 'Éditer', edit_reservation_path(reservation) %></td>
                     <% end %>
