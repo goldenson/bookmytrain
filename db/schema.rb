@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109135713) do
+ActiveRecord::Schema.define(version: 20171110005122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20171109135713) do
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
     t.string "name"
-    t.string "image"
     t.string "login_trainline"
     t.string "password_trainline"
     t.datetime "created_at", null: false

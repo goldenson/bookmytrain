@@ -9,7 +9,6 @@ Automated train ticket booking for https://www.trainline.fr
 - [ ] Fix users update, allow them change password
 - [ ] Add fb/google auth?
 - [ ] Add SweetAlert
-- [ ] Remove image from user
 - [ ] Localize users
 - [ ] Add bugsnag
 - [ ] Add Codecov
