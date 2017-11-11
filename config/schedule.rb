@@ -1,3 +1,3 @@
-every 1.day, :at => '01:05 am' do
+every 1.day, :at => '00:09 am' do
   rake "automated_reservation"
 end
