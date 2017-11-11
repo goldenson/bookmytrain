@@ -19,7 +19,7 @@ if Rails.env.production?
   end
 elsif Rails.env.development?
   Capybara.register_driver :selenium do |app|
-    Capybara::Selenium::Driver.new(app, browser: :chrome, url: "http://127.0.0.1:9515")
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
 
   Capybara.javascript_driver = :chrome
