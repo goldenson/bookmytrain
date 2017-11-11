@@ -1,5 +1,3 @@
-set :chronic_options, :hours24 => true
-
-every 1.day, :at => '01:00' do
+every 1.day, :at => '01:05 am' do
   rake "automated_reservation"
 end
