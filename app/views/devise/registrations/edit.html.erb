@@ -1,58 +1,65 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-5 col-md-6 ml-auto mr-auto">
-      <h1 class="text-center">Account</h1>
+      <h1 class="text-center">Préférences</h1>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= error_messages!(resource) %>
 
-        <div class="form-group">
-          <%= f.label :nom %>
-          <%= f.text_field :name, class: 'form-control' %>
-        </div>
+        <div>
+          <h2>Informations personnelles</h2>
+          <div class="row"><div class="col"><hr></div></div>
+          <div class="form-group">
+            <%= f.label :nom %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :password %>
+            <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+            <%# <p class="form-text text-muted"><small>Leave password blank if you don't want to change it</small></p> %>
+          </div>
 
-        <div class="form-group">
-          <%= f.label :identifiant_trainline %>
-          <%= f.text_field :login_trainline, class: 'form-control', placeholder: 'Addresse email' %>
-          <p class="form-text text-muted"><small>Information requise 🤖</small></p>
-        </div>
-
-        <div class="form-group">
-          <div class="input-group">
-            <%= f.text_field :password_trainline, class: 'form-control', placeholder: 'Mot de passe', aria: { label: "Mot de passe" }, type: 'password' %>
-            <span class="input-group-btn">
-              <button class="btn btn-primary btn-sm" type="button" id="show_password">Voir</button>
-            </span>
+          <div class="form-group">
+            <%= f.label :password_confirmation %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
           </div>
         </div>
 
-        <div class="form-group">
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control' %>
+        <div class="mt-5">
+          <h2>Informations Trainline 🤖</h2>
+          <div class="row"><div class="col"><hr></div></div>
+          <div class="form-group">
+            <%= f.label :identifiant_trainline %>
+            <%= f.text_field :login_trainline, class: 'form-control', placeholder: 'Addresse email' %>
+            <p class="form-text text-muted"><small>Information requise pour réserver ta place</small></p>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group">
+              <%= f.text_field :password_trainline, class: 'form-control', placeholder: 'Mot de passe', aria: { label: "Mot de passe" }, type: 'password' %>
+              <span class="input-group-btn">
+                <button class="btn btn-primary btn-sm" type="button" id="show_password">Voir</button>
+              </span>
+            </div>
+            <p class="form-text text-muted"><small>Information requise pour réserver ta place</small></p>
+          </div>
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div class="alert alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <div class="form-group">
-          <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
-          <p class="form-text text-muted"><small>Leave password blank if you don't want to change it</small></p>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %>
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
-        </div>
-
-        <div class="form-group">
-          <%= f.submit "Save Changes", class: 'btn btn-lg btn-block btn-primary' %>
+        <div class="form-group mt-5">
+          <%= f.submit "Éditer", class: 'btn btn-lg btn-block btn-primary' %>
         </div>
       <% end %>
       <hr>
 
-      <p class="text-center"><%= link_to "Deactivate my account", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
+      <p class="text-center"><%= link_to "Désactiver mon compte", registration_path(resource_name), data: { confirm: "Are you sure? You cannot undo this." }, method: :delete %></p>
     </div>
   </div>
 </div>

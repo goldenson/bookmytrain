@@ -12,7 +12,7 @@ fr:
         current_password: Mot de passe actuel
         current_sign_in_at: Date de la connexion actuelle
         current_sign_in_ip: IP de la connexion actuelle
-        email: Courriel
+        email: Email
         encrypted_password: Mot de passe crypté
         failed_attempts: Tentatives échouées
         last_sign_in_at: Date de la dernière connexion
@@ -25,7 +25,7 @@ fr:
         reset_password_sent_at: Clé de réinitialisation créée à
         reset_password_token: Clé de réinitialisation du mot de passe
         sign_in_count: Nombre des connexions
-        unconfirmed_email: Courriel non confirmé
+        unconfirmed_email: Email non confirmé
         unlock_token: Clé de déverrouillage
         updated_at: Date de mise à jour
       reservation:
