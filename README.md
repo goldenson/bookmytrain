@@ -1,5 +1,5 @@
 # bookmytrain
-[![Build Status](https://travis-ci.org/goldenson/bookmytrain.svg?branch=master)](https://travis-ci.org/Goldenson/bookmytrain)
+[![Build Status](https://travis-ci.org/goldenson/bookmytrain.svg?branch=master)](https://travis-ci.org/goldenson/bookmytrain)
 
 Automated train ticket booking for https://www.trainline.fr
 
