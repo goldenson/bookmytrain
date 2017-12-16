@@ -7,4 +7,4 @@ services:
 before_script:
   - psql -c 'create database travis_test;' -U postgres
   - "cp ./config/database.travis.yml ./config/database.yml"
-script: bundle exec rake test:system
+script: bundle exec rake test
