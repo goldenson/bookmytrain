@@ -5,19 +5,21 @@ Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
 
+- [ ] Test if le cron job tourne bien sur le server
 - [ ] Add GA
-- [ ] Add landing page
+- [ ] Finish Travis CI setup
+- [ ] Add sidekiq to schedule each reservation in one isolated job
+- [ ] Add download ticket
 - [ ] Add wizard to fill in trainline information
-- [ ] Faire la recherche par uri https://www.trainline.fr/search/paris/st-raphael-valescure/2017-11-17-10:00
+- [ ] Get the ticket available on mrtranchette
+- [ ] Add service worker
 - [ ] Fix users update, allow them change password
+- [ ] Add landing page
 - [ ] Add fb/google auth?
 - [ ] Add SweetAlert?
-- [ ] Localize users
 - [ ] Add bugsnag
 - [ ] Add Codecov or codeclimate
-- [ ] Finish Travis CI setup
 - [ ] Write system test
-- [ ] Test if le cron job tourne bien sur le server
 - [ ] Know if a reservation is already booked
 - [ ] Remove all sleep call and introduce a smarter solution
 - [ ] Add a page to explain them, they need a trainline account already setup
