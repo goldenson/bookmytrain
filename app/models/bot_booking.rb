@@ -3,7 +3,7 @@ class BotBooking
 
   def initialize(reservation)
     @reservation = reservation
-    @trainline_url = "https://www.trainline.fr/"
+    @trainline_url = "https://www.trainline.fr"
     @browser = Capybara.current_session
     @driver = @browser.driver.browser
     @countdown = 0
@@ -39,10 +39,14 @@ class BotBooking
   end
 
   def search_for_results
-    fill_in_city_departure
-    fill_in_city_arrival
-    pick_right_month
-    pick_right_datetime_departure
+    sleep 1
+    puts "Looking for a ticket for #{@reservation.user.email}"
+    @browser.visit("#{@trainline_url}/search/"\
+      "#{@reservation.city_departure}/"\
+      "#{@reservation.city_arrival}/"\
+      "#{@reservation.date_departure.to_s}-"\
+      "#{@reservation.time_departure.strftime('%H:%M')}")
+    sleep 1
     submit_search
   end
 
@@ -93,16 +97,16 @@ class BotBooking
     sleep 4
     @browser.find('.selected-folder__button button').click
     puts "ADD TO CART"
-    sleep 4
-    @reservation.success
+    sleep 6
     puts "PAY TICKET -> $0"
-    @browser.find('.cart__group button').click
+    @browser.find('.cart__group--last button').click
     sleep 1
     puts "I AGREE WITH SNCF"
     @browser.find('.modal-dialog form span').click
     sleep 1
     puts "TICKET BOOKED"
     @browser.click_button('Valider')
+    @reservation.success
   end
 
   def visit_trainline
@@ -110,60 +114,7 @@ class BotBooking
     @browser.visit(@trainline_url)
   end
 
-  def fill_in_city_departure
-    puts "FILLING CITY DEPARTURE"
-    @browser.find('.search__departure-input').set("#{@reservation.city_departure}")
-    sleep 1
-    @browser.find('.search__stations--list').find("li:first-child").click
-  end
-
-  def fill_in_city_arrival
-    puts "FILLING CITY ARRIVAL"
-    @browser.find('.search__arrival-input').set("#{@reservation.city_arrival}")
-    sleep 1
-    @browser.find('.search__stations--list').find("li:first-child").click
-  end
-
-  def pick_right_month
-    puts "PICKING RIGHT MONTH"
-    delta_mat = @reservation.date_departure.month - @browser.find('.search__calendar--current-month').text.to_datetime.month
-    delta_mat = 12 + delta_mat if delta_mat.negative? # next year case
-
-    delta_mat.times do
-      @browser.find('.search__calendar--increment-month').click
-      sleep 1
-    end
-  end
-
-  def pick_right_datetime_departure
-    puts "PICKING DATETIME DEPARTURE"
-    pick_right_date(@reservation.date_departure)
-    pick_right_time(@reservation.time_departure)
-  end
-
   def submit_search
     @browser.find('.search__button').click
-  end
-
-  private
-
-  def pick_right_date(date)
-    sleep 1
-    @browser.all('.search__calendar tbody tr td:not(.not-current-month):not(.disabled)').each do |node|
-      if node.text.to_i == date.day
-        node.click
-        break
-      end
-    end
-  end
-
-  def pick_right_time(time)
-    sleep 1
-    @browser.all('.search__timeslots time').each do |node|
-      if node.text.to_i >= time.hour
-        node.click
-        break
-      end
-    end
   end
 end
