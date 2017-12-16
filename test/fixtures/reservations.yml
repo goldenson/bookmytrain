@@ -1,5 +1,3 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
   city_departure: Paris
   city_arrival: Saint Raphael
@@ -7,3 +5,4 @@ one:
   time_departure: 2017-10-30 14:00:00
   seat_preference: Couloir
   state: pending
+  user: max
