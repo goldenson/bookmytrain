@@ -1,5 +1,5 @@
 set :output, "/home/deploy/cron.log"
 
-every 1.hours do
-  command "echo 'the job is working 😁'"
+every 1.day, :at => '11:40 pm' do
+  rake "automated_reservation"
 end
