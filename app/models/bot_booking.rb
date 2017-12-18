@@ -104,9 +104,9 @@ class BotBooking
     puts "I AGREE WITH SNCF"
     @browser.find('.modal-dialog form span').click
     sleep 1
-    puts "TICKET BOOKED"
     @browser.click_button('Valider')
     @reservation.success
+    puts "TICKET BOOKED"
   end
 
   def visit_trainline
