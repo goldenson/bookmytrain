@@ -34,7 +34,6 @@ class BotBooking
     @browser.find('#signin-form input[type=password]').set(@reservation.user.password_trainline)
     sleep 1
     @browser.find('.signin__button').click
-    puts "SIGN IN AS MAX"
     sleep 1
   end
 
@@ -100,11 +99,12 @@ class BotBooking
     sleep 6
     puts "PAY TICKET -> $0"
     @browser.find('.cart__group--last button').click
-    sleep 1
+    sleep 2
     puts "I AGREE WITH SNCF"
     @browser.find('.modal-dialog form span').click
-    sleep 1
+    sleep 2
     @browser.click_button('Valider')
+    sleep 2
     @reservation.success
     puts "TICKET BOOKED"
   end
