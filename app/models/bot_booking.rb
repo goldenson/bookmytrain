@@ -50,7 +50,7 @@ class BotBooking
   end
 
   def pick_the_best_result
-    sleep 1
+    sleep 2
     @browser.all('.search__results--table .search__results--line .first span.time').each_with_index do |node, index|
       @browser.execute_script("$($('.search__results--line')[#{index}]).css('background','pink')")
       puts "NODE #{index} for #{node.text}"
