@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   namespace :admin do
+    authenticate :user, lambda { |u| u.admin? } do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+
     resources :users
     resources :reservations
 
