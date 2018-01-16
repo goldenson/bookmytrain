@@ -5,7 +5,6 @@ class BookTicketWorker
   def perform(reservation_id)
     reservation = Reservation.find(reservation_id)
     bot = BotBooking.new(reservation)
-    sleep 1
     bot.flow
   end
 end
