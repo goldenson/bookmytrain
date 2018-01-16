@@ -17,6 +17,7 @@ class BotBooking
       pick_the_best_result
       choose_a_seat
       checkout
+      @driver.quit
     rescue NoMethodError, Capybara::ElementNotFound
       @reservation.failure
     end
