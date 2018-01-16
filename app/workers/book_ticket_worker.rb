@@ -4,6 +4,7 @@ class BookTicketWorker
 
   def perform(reservation_id)
     reservation = Reservation.find(reservation_id)
+    logger.info "Run bot booking........."
     bot = BotBooking.new(reservation)
     bot.flow
   end
