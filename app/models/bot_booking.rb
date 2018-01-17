@@ -27,9 +27,9 @@ class BotBooking
     puts "Hello 💩"
     sleep 1
     visit_trainline
-    sleep 1
+    sleep 2
     @browser.find('.header__signin-button').click
-    sleep 1
+    sleep 2
     @browser.find('#signin-form input[type=email]').set(@reservation.user.login_trainline)
     sleep 1
     @browser.find('#signin-form input[type=password]').set(@reservation.user.password_trainline)
