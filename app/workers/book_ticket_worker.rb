@@ -1,6 +1,6 @@
 class BookTicketWorker
   include Sidekiq::Worker
-  sidekiq_options :retry => 5, :backtrace => 10
+  sidekiq_options :retry => 5, :backtrace => 30
 
   def perform(reservation_id)
     reservation = Reservation.find(reservation_id)
