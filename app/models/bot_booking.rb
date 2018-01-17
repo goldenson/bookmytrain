@@ -27,9 +27,9 @@ class BotBooking
     puts "Hello 💩"
     sleep 1
     visit_trainline
-    sleep 2
+    sleep 1
     @browser.find('.header__signin-button').click
-    sleep 2
+    sleep 1
     @browser.find('#signin-form input[type=email]').set(@reservation.user.login_trainline)
     sleep 1
     @browser.find('#signin-form input[type=password]').set(@reservation.user.password_trainline)
@@ -52,6 +52,7 @@ class BotBooking
 
   def pick_the_best_result
     sleep 2
+    puts "PICKING BEST RESULT"
     @browser.all('.search__results--table .search__results--line .first span.time').each_with_index do |node, index|
       @browser.execute_script("$($('.search__results--line')[#{index}]).css('background','pink')")
       puts "NODE #{index} for #{node.text}"
