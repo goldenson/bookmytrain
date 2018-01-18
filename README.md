@@ -5,13 +5,7 @@ Automated train ticket booking for https://www.trainline.fr
 
 ## TODO
 
-- [ ] Test if le cron job tourne bien sur le server
-- [ ] Add GA
-- [ ] Finish Travis CI setup
-- [ ] Add sidekiq to schedule each reservation in one isolated job
-- [ ] Add download ticket
 - [ ] Add wizard to fill in trainline information
-- [ ] Get the ticket available on mrtranchette
 - [ ] Add service worker
 - [ ] Fix users update, allow them change password
 - [ ] Add landing page
