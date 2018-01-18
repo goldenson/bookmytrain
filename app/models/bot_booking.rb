@@ -1,5 +1,6 @@
 class BotBooking
-  PURCHASED_ATTEMPTS = 2.freeze
+  PURCHASED_ATTEMPTS = 3.freeze
+  class ReservationFailure < StandardError; end
 
   def initialize(reservation)
     @reservation = reservation
@@ -20,6 +21,7 @@ class BotBooking
       @driver.quit
     rescue NoMethodError, Capybara::ElementNotFound
       @reservation.failure
+      raise ReservationFailure
     end
   end
 
@@ -52,7 +54,7 @@ class BotBooking
 
   def pick_the_best_result
     sleep 2
-    puts "PICKING BEST RESULT"
+    puts "PICKING BEST RESULT for #{@reservation.date_departure}"
     @browser.all('.search__results--table .search__results--line .first span.time').each_with_index do |node, index|
       @browser.execute_script("$($('.search__results--line')[#{index}]).css('background','pink')")
       puts "NODE #{index} for #{node.text}"
