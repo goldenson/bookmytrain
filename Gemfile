@@ -25,6 +25,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'pkg-config'
 gem 'capybara'
 gem 'selenium-webdriver'
 gem 'whenever', :require => false
@@ -40,4 +41,3 @@ gem 'devise_masquerade'
 gem 'sidekiq'
 gem 'redis'
 gem 'foreman'
-gem 'pkg-config'
