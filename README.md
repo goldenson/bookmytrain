@@ -3,7 +3,7 @@
 
 Automated train ticket booking for https://www.trainline.fr
 
-![](https://i.imgur.com/M0eFgvX.gif)
+![](https://i.imgur.com/vXAbBkO.gif)
 
 <!-- ## TODO
 
